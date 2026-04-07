@@ -7,8 +7,8 @@ function App() {
   return (
     <HashRouter>
       <nav>
-        <Link to="/">Головна</Link>
-        <Link to="/variables">Довідка</Link>
+        <Link to="/">Home</Link>
+        <Link to="/variables">Variables</Link>
       </nav>
       <main>
         <Routes>

@@ -14,7 +14,7 @@ export const Variables = () => {
         const data = await getVehicleVariablesList();
         setVariables(data);
       } catch {
-        setError("Не вдалося завантажити змінні");
+        setError("Failed to load variables");
       } finally {
         setLoading(false);
       }
@@ -24,7 +24,7 @@ export const Variables = () => {
   }, []);
 
   if (loading) {
-    return <p className="loading">Завантаження змінних...</p>;
+    return <p className="loading">Loading variables...</p>;
   }
 
   if (error) {
@@ -33,11 +33,11 @@ export const Variables = () => {
 
   return (
     <div>
-      <h1>Список всіх змінних</h1>
+      <h1>List of all variables</h1>
       <ul>
         {variables.map((v) => (
-          <li key={v.ID}>
-            <Link to={`/variables/${v.ID}`}>{v.Name}</Link>
+          <li key={v.id}>
+            <Link to={`/variables/${v.id}`}>{v.name}</Link>
           </li>
         ))}
       </ul>

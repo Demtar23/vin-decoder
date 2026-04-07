@@ -10,7 +10,7 @@ export const VinHistory: React.FC<Props> = ({ history, onSelect }) => {
 
   return (
     <div>
-      <h3>Останні VIN:</h3>
+      <h3>Recent VINs:</h3>
       <ul>
         {history.map((vin) => (
           <li key={vin}>

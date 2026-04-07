@@ -10,7 +10,7 @@ export async function decodeVin(vin: string): Promise<VinDecodeResponse> {
   const result = await fetch(`${BASE_URL}/decodevin/${vin}?format=json`);
 
   if (!result.ok) {
-    throw new Error(`Помилка мережі: ${result.status}`);
+    throw new Error(`Network Error: ${result.status}`);
   }
 
   const data: VinDecodeResponse = await result.json();
@@ -22,18 +22,18 @@ export async function getVehicleVariablesList(): Promise<VinVariable[]> {
   const result = await fetch(`${BASE_URL}/getvehiclevariablelist?format=json`);
 
   if (!result.ok) {
-    throw new Error(`Помилка мережі: ${result.status}`);
+    throw new Error(`Network Error: ${result.status}`);
   }
 
   const data: VinVariableRespone = await result.json();
 
-  return data.Results;
+  return data.results;
 }
 
 export async function getVariableById(id: string): Promise<VinVariable | null> {
   const variables = await getVehicleVariablesList();
 
-  const variable = variables.find((v) => v.ID.toString() === id);
+  const variable = variables.find((v) => v.id.toString() === id);
 
   return variable || null;
 }

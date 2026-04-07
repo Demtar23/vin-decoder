@@ -31,7 +31,7 @@ export const HomePage = () => {
       const data = await decodeVin(vin);
       handleResults(data, vin);
     } catch {
-      setError("Помилка при запиті до API");
+      setError("API request error");
     } finally {
       setLoading(false);
     }
@@ -48,7 +48,7 @@ export const HomePage = () => {
       <VinHistory history={history} onSelect={handleSelectHistory} />
       {error && <p className="error">{error}</p>}
       {loading ? (
-        <p className="loading">Завантаження...</p>
+        <p className="loading">Loading...</p>
       ) : (
         <VinResults data={results} />
       )}

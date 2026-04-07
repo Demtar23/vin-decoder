@@ -19,12 +19,12 @@ export const VariableDetails = () => {
         const data = await getVariableById(id);
 
         if (!data) {
-          setError('Змінну не знайдено');
+          setError('Variable not found');
         } else {
           setVariable(data);
         } 
       } catch {
-        setError('Помилка при завантаженні змінної');
+        setError('Error loading variable');
       } finally {
         setLoading(false);
       }
@@ -34,7 +34,7 @@ export const VariableDetails = () => {
   }, [id]);
 
   if (loading) {
-    return <p className="loading">Завантаження змінних...</p>;
+    return <p className="loading">Loading variables...</p>;
   }
 
   if (error) {
@@ -47,10 +47,10 @@ export const VariableDetails = () => {
 
   return (
     <div>
-      <h1>{variable.Name}</h1>
+      <h1>{variable.name}</h1>
       {/* Description може містити HTML теги від NHTSA API */}
-      <p dangerouslySetInnerHTML={{ __html: variable.Description }} />
-      <Link to={"/variables"}>Повернутися до списку змінних</Link>
+      <p dangerouslySetInnerHTML={{ __html: variable.description }} />
+      <Link to={"/variables"}>Back to Variables</Link>
     </div>
   );
 }

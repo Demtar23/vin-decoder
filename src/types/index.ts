@@ -1,21 +1,21 @@
 export type VinResult = {
-  Variable: string;
-  Value: string | null;
+  variable: string;
+  value: string | null;
 };
 
 export type VinDecodeResponse = {
-  Results: VinResult[];
-  Message: string;
+  results: VinResult[];
+  message: string;
 };
 
 export type VinVariable = {
-  ID: number;
-  Name: string;
-  Description: string;
+  id: number;
+  name: string;
+  description: string;
 }
 
 export type VinVariableRespone = {
-  Count: number;
-  Message: string;
-  Results: VinVariable[];
+  count: number;
+  message: string;
+  results: VinVariable[];
 }

@@ -34,7 +34,7 @@ export const VinForm: React.FC<Props> = ({ onResults, onLoadingChange, currentVi
       const data: VinDecodeResponse = await decodeVin(vin);
       onResults(data, vin);
     } catch {
-      setError("Помилка при запиті до API");
+      setError("API request error");
     } finally {
       onLoadingChange(false);
     }
@@ -47,9 +47,9 @@ export const VinForm: React.FC<Props> = ({ onResults, onLoadingChange, currentVi
           type="text"
           value={vin}
           onChange={(e) => setVin(e.target.value.toUpperCase())}
-          placeholder="Введіть VIN"
+          placeholder="Enter VIN"
         />
-        <button type="submit">Розшифрувати</button>
+        <button type="submit">Decode</button>
       </div>
       {error && <p className="error">{error}</p>}
     </form>
