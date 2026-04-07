@@ -27,13 +27,13 @@ export async function getVehicleVariablesList(): Promise<VinVariable[]> {
 
   const data: VinVariableRespone = await result.json();
 
-  return data.results;
+  return data.Results;
 }
 
 export async function getVariableById(id: string): Promise<VinVariable | null> {
   const variables = await getVehicleVariablesList();
 
-  const variable = variables.find((v) => v.id.toString() === id);
+  const variable = variables.find((v) => v.ID.toString() === id);
 
   return variable || null;
 }

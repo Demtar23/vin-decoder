@@ -11,8 +11,8 @@ type Props = {
 };
 
 export const VinForm: React.FC<Props> = ({ onResults, onLoadingChange, currentVin }) => {
-  const [vin, setVin] = useState<string>("");
-  const [error, setError] = useState<string>("");
+  const [vin, setVin] = useState("");
+  const [error, setError] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

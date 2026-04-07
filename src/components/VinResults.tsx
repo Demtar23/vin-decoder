@@ -8,25 +8,25 @@ type Props = {
 export const VinResults: React.FC<Props> = ({ data }) => {
   if (!data) return null;
 
-  const hasError = data.results.some(
-    (res) => res.variable === "Error Code" && res.value !== "0",
+  const hasError = data.Results.some(
+    (res) => res.Variable === "Error Code" && res.Value !== "0",
   );
 
   if (hasError) {
-    const errorText = data.results.find(res => res.variable === 'Error Text')?.value;
+    const errorText = data.Results.find(res => res.Variable === 'Error Text')?.Value;
 
     return <p className="error">{errorText}</p>;
   }
 
-  const filteredData = data.results.filter(
+  const filteredData = data.Results.filter(
   (r) =>
-    r.value &&
-    r.value !== "Not Applicable" &&
-    !r.variable.includes("Error")
+    r.Value &&
+    r.Value !== "Not Applicable" &&
+    !r.Variable.includes("Error")
 );
 
   if (!filteredData.length) {
-    return <p className="error">{data.message}</p>;
+    return <p className="error">{data.Message}</p>;
   }
 
   return (
@@ -34,8 +34,8 @@ export const VinResults: React.FC<Props> = ({ data }) => {
       <h3>Decoding Results:</h3>
       <ul>
         {filteredData.map((r) => (
-          <li key={r.variable}>
-            <strong>{r.variable}:</strong> {r.value}
+          <li key={r.Variable}>
+            <strong>{r.Variable}:</strong> {r.Value}
           </li>
         ))}
       </ul>

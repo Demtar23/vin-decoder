@@ -36,8 +36,8 @@ export const Variables = () => {
       <h1>List of all variables</h1>
       <ul>
         {variables.map((v) => (
-          <li key={v.id}>
-            <Link to={`/variables/${v.id}`}>{v.name}</Link>
+          <li key={v.ID}>
+            <Link to={`/variables/${v.ID}`}>{v.Name}</Link>
           </li>
         ))}
       </ul>

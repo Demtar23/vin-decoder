@@ -47,9 +47,9 @@ export const VariableDetails = () => {
 
   return (
     <div>
-      <h1>{variable.name}</h1>
+      <h1>{variable.Name}</h1>
       {/* Description може містити HTML теги від NHTSA API */}
-      <p dangerouslySetInnerHTML={{ __html: variable.description }} />
+      <p dangerouslySetInnerHTML={{ __html: variable.Description }} />
       <Link to={"/variables"}>Back to Variables</Link>
     </div>
   );
